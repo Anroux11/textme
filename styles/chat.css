@@ -1,0 +1,167 @@
+.container {
+    max-width: auto;
+    max-height: 100vh;
+}
+
+.left-pane {
+    height: 100vh;
+    width: 300px;
+    position: absolute;
+    background-color: #2f4f4f;
+}
+
+.right-pane {
+    height: 100vh;
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    position: absolute;
+    background-color: lightgray;
+}
+
+.my-user {
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-left: 20px;
+    width: 200px;
+    display: inline-block;
+}
+
+.view-profile {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.add-group,
+.filter-group {
+    width: 100%;
+    display: inline-block;
+}
+
+.add-contact {
+    width: 45%;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0 10px 4%;
+    height: 30px;
+    font-weight: 600;
+}
+
+.group {
+    width: 45%;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    font-weight: 600;
+}
+
+.all {
+    cursor: pointer;
+    height: 20px;
+    width: 30%;
+    margin-left: 4%;
+    border-radius: 5px;
+}
+
+.online {
+    cursor: pointer;
+    height: 20px;
+    width: 30%;
+    border-radius: 5px;
+}
+
+.offline {
+    cursor: pointer;
+    height: 20px;
+    width: 30%;
+    border-radius: 5px;
+}
+
+hr {
+    width: 260px;
+}
+
+.contact-list {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.contact-name {
+    background-color: slategray;
+    width: calc(100% - 12px);
+    height: 35px;
+    font-size: 25px;
+    padding-left: 10px;
+    border-top: 2px solid darkslategray;
+    border-right: 2px solid darkslategray;
+}
+
+.contact-name:hover {
+    background-color: lightgray;
+}
+
+.contact-name.active {
+    background-color: lightgray;
+    border-right: 2px solid transparent;
+}
+
+.header {
+    background-color: darkslategray;
+    width: 100%;
+    height: 70px;
+}
+
+.chat {
+
+}
+
+.footer {
+    background-color: darkslategray;
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    display: inline-block;
+}
+
+.message-input {
+    width: 85%;
+    padding-left: 15px;
+    margin-left: 10px;
+    height: 40px;
+    margin-top: 12px;
+}
+
+.send-message-btn {
+    width: 10%;
+    height: 44px;
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
+    width:100%;
+}
+
+.logout-btn {
+    cursor: pointer;
+    width: 100%;
+    height: 35px;
+}
