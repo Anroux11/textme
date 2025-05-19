@@ -1,15 +1,3 @@
-/* 
-
-Login
-- get username, get password
-- get user from localstorage
-- if username is in localstorage, match passwords
-- if passwords match, direct to chat
-- else, show error
-
-
-**/
-
 function validateRegistration(username, password) {
   const usernameError = validateUsername(username);
   const passwordError = validatePassword(password);

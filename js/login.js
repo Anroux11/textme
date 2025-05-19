@@ -1,34 +1,3 @@
-// function validateLogin(username, password) {
-//   const usernameError = validateUsername(username);
-//   const passwordError = validatePassword(password);
-//   if (usernameError || passwordError) {
-//     if (usernameError) {
-//       alert("Username Error: " + usernameError);
-//     }
-//     if (passwordError) {
-//       alert("Password Error: " + passwordError);
-//     }
-//     return false;
-//   }
-//   return true;
-// }
-
-// function validateUsername(username) {
-//   if (username.length < 5 || username.length > 15) {
-//     return "Username must be between 6 and 16 characters.";
-//   } else {
-//     return false;
-//   }
-// }
-
-// function validatePassword(password) {
-//   if (password.length < 8) {
-//     return "Password must be at least 8 characters.";
-//   } else {
-//     return false; // No error
-//   }
-// }
-
 function login() {
   const usernameInput = document.getElementById("username").value;
   const passwordInput = document.getElementById("password").value;
