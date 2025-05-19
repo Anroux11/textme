@@ -1,4 +1,4 @@
-.register-card {
+.login-card {
     place-items: center;
     justify-content: center;
     align-items: center;   
@@ -39,7 +39,7 @@ h2 {
     height: 40px;
 } 
 
-#password, #email {
+#password {
     width: 250px;
     height: 40px;
     margin-top: 20px;
