@@ -37,12 +37,29 @@ h2 {
 #username {
     width: 250px;
     height: 40px;
+    border: none;
 } 
 
 #password {
     width: 250px;
     height: 40px;
     margin-top: 20px;
+    border: none;
+}
+
+hr {
+    margin-top: 20px;
+    width: 90px;
+}
+
+h6 {
+    padding-top:20px;
+    color: white;
+}
+
+a {
+    color: white;
+    margin-left:30px
 }
 
 button {
