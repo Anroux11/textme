@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="../styles/chat.css" />
     <title>Chat</title>
   </head>
-  <body style="margin: 0">
+  <body onload="onload()">
     <div class="container">
       <div class="left-pane">
         <div class="my-user">
-          <h2>Anroux</h2>
+          <h2 id="name">User</h2>
           <button class="view-profile">View</button>
           <hr />
           <div class="add-group">
@@ -24,19 +24,15 @@
             <button class="offline">Offline</button>
           </div>
 
-          <div class="contact-list">
-            <div class="contact-name">Ivan</div>
-            <div class="contact-name">Polane</div>
-            <div class="contact-name active">Tshepo</div>
-          </div>
+          <div class="contact-list" id="contacts"></div>
           <div class="logout">
-            <button class="logout-btn">LogOut</button>
+            <button class="logout-btn" onclick="logout()">LogOut</button>
           </div>
         </div>
       </div>
       <div class="right-pane">
         <div class="header"></div>
-        <div class="chat"></div>
+        <div class="chat" id="chatmessage"></div>
         <div class="footer">
           <input
             class="message-input"
@@ -44,9 +40,10 @@
             id="user-message"
             placeholder="Type Message"
           />
-          <button class="send-message-btn">Send</button>
+          <button class="send-message-btn" onclick="sendMessage()">Send</button>
         </div>
       </div>
     </div>
+    <script src="/js/chat.js"></script>
   </body>
 </html>
