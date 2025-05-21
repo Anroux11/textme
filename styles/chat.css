@@ -1,3 +1,10 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgba(0, 0, 0, 0.849);
+  height: 100vh;
+  margin: 0;
+}
+
 .container {
   max-width: auto;
   max-height: 100vh;
@@ -125,6 +132,23 @@ hr {
 }
 
 .chat {
+  overflow-y: scroll;
+  height: auto;
+  max-height: 520px;
+}
+
+.chat::-webkit-scrollbar {
+  display: none;
+}
+
+.message {
+  border: 1px solid black;
+  padding: 5px 15px;
+  background-color: lightslategray;
+  margin: 10px 0 0px 10px;
+  height: auto;
+  display: block;
+  width: 60%;
 }
 
 .footer {
@@ -140,14 +164,14 @@ hr {
   width: 85%;
   padding-left: 15px;
   margin-left: 10px;
-  height: 40px;
-  margin-top: 12px;
+  height: 37px;
+  margin-top: 15px;
 }
 
 .send-message-btn {
   width: 10%;
-  height: 44px;
-  margin-left: 5px;
+  height: 40px;
+  margin-left: 10px;
   font-weight: 600;
   font-size: 20px;
   margin-top: 15px;
@@ -157,10 +181,13 @@ hr {
   position: absolute;
   bottom: 0;
   width: 100%;
+  height: 70px;
 }
 
 .logout-btn {
   cursor: pointer;
   width: 100%;
-  height: 35px;
+  height: 70px;
+  font-weight: 600;
+  font-size: 15px;
 }
