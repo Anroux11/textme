@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/chat.css" />
+    <script
+      src="https://kit.fontawesome.com/367b2d195b.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Chat</title>
   </head>
   <body onload="onload()">
@@ -11,11 +15,17 @@
       <div class="left-pane">
         <div class="my-user">
           <h2 id="name">User</h2>
-          <button class="view-profile">View</button>
+          <button class="view-profile" onclick="openViewModal()">
+            <i class="fa-solid fa-user-pen"></i>
+          </button>
           <hr />
           <div class="add-group">
-            <button class="add-contact">Add Contact</button>
-            <button class="group">Group Chat</button>
+            <button class="add-contact">
+              Contact<i class="fa-solid fa-plus"></i>
+            </button>
+            <button class="group">
+              Group <i class="fa-solid fa-people-group"></i>
+            </button>
           </div>
           <hr />
           <div class="filter-group">
@@ -23,15 +33,32 @@
             <button class="online">Online</button>
             <button class="offline">Offline</button>
           </div>
-
           <div class="contact-list" id="contacts"></div>
           <div class="logout">
-            <button class="logout-btn" onclick="logout()">LogOut</button>
+            <button class="logout-btn" onclick="logout()">
+              LogOut<i class="fa-solid fa-right-from-bracket"></i>
+            </button>
           </div>
         </div>
       </div>
       <div class="right-pane">
         <div class="header"></div>
+        <div class="modal" id="view-modal">
+          <div>
+            <h3>Edit profile</h3>
+            <label for="username-change">Change Username: </label>
+            <input
+              type="text"
+              id="username-change"
+              name="chg-username"
+              placeholder="Change username"
+            />
+            <button class="changebtn" type="submit" onclick="changeUsername()">
+              Change
+            </button>
+            <button class="closeModal" onclick="closeViewModal()">Close</button>
+          </div>
+        </div>
         <div class="chat" id="chatmessage"></div>
         <div class="footer">
           <input
@@ -40,10 +67,13 @@
             id="user-message"
             placeholder="Type Message"
           />
-          <button class="send-message-btn" onclick="sendMessage()">Send</button>
+          <button class="send-message-btn" onclick="sendMessage()">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
         </div>
       </div>
     </div>
+
     <script src="/js/chat.js"></script>
   </body>
 </html>

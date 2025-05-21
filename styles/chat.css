@@ -30,6 +30,10 @@ body {
   align-items: center;
 }
 
+.fa-solid .fa-user-pen {
+  font-size: 20px;
+}
+
 h2 {
   justify-content: center;
   align-items: center;
@@ -42,7 +46,7 @@ h2 {
 .view-profile {
   display: inline-block;
   width: 60px;
-  height: 30px;
+  height: 40px;
   justify-content: center;
   align-items: center;
   margin-top: 25px;
@@ -50,6 +54,55 @@ h2 {
   border-radius: 5px;
   cursor: pointer;
   font-weight: 600;
+}
+
+.view-profile:hover {
+  background-color: rgb(199, 225, 199);
+}
+
+.modal {
+  /* display: none; */
+  display: block;
+  width: 350px;
+  height: 170px;
+  background-color: rgb(199, 225, 199);
+  border-radius: 10px;
+  border-color: 2px solid black;
+  min-width: 300px;
+  z-index: 2000;
+  display: flex;
+  justify-self: center;
+  margin-top: 220px;
+}
+
+label {
+  padding-left: 10px;
+}
+
+input {
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+#username-change {
+  padding-left: 20px;
+  height: 25px;
+}
+
+h3 {
+  padding-left: 10px;
+}
+
+.changebtn {
+  padding-left: 10px;
+  border-radius: 10px;
+}
+
+.closeModal {
+  width: 50px;
+  border-radius: 50px;
 }
 
 .add-group,
@@ -60,19 +113,37 @@ h2 {
 
 .add-contact {
   width: 45%;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   margin: 10px 0 10px 4%;
-  height: 30px;
+  height: 40px;
   font-weight: 600;
+}
+
+.add-contact:hover {
+  background-color: rgb(199, 225, 199);
+}
+
+.fa-solid .fa-people-group {
+  font-size: 15px;
+  padding-left: 10px;
 }
 
 .group {
   width: 45%;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
-  height: 30px;
+  height: 40px;
   font-weight: 600;
+}
+
+.group:hover {
+  background-color: rgb(199, 225, 199);
+}
+
+.fa-solid .fa-people-group {
+  font-size: 25px;
+  padding-left: 10px;
 }
 
 .all {
@@ -142,13 +213,13 @@ hr {
 }
 
 .message {
-  border: 1px solid black;
-  padding: 5px 15px;
+  padding: 7px 15px;
   background-color: lightslategray;
-  margin: 10px 0 0px 10px;
-  height: auto;
+  margin: 10px 0px 0px 10px;
+  height: 40%;
   display: block;
-  width: 60%;
+  width: 45%;
+  border-radius: 15px;
 }
 
 .footer {
@@ -174,7 +245,19 @@ hr {
   margin-left: 10px;
   font-weight: 600;
   font-size: 20px;
-  margin-top: 15px;
+  margin-top: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.send-message-btn:hover {
+  background-color: rgb(128, 185, 23);
+  color: white;
+  border-color: 2px solid white;
+}
+
+.fa-solid .fa-paper {
+  font-size: 20px;
 }
 
 .logout {
@@ -189,5 +272,15 @@ hr {
   width: 100%;
   height: 70px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.logout-btn:hover {
+  background-color: rgb(212, 174, 169);
+}
+
+.fa-solid .fa-right-from-bracket {
+  padding-left: 20px;
+  font-size: 25px;
 }
