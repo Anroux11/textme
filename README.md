@@ -42,7 +42,7 @@ This app was created using HTML, CSS and JS.
  - An input field for typing messages with a send button
 
 ## Design  
-[WIREFRAMES] (todo - add in the link)
+[WIREFRAMES] (https://www.figma.com/design/Pt94MTVC6AAPnB4Bu5YBmT/TextMe?node-id=0-1&p=f&t=BDYCZb8UloKKkXSd-0)
 
 ## Application details
 ### Project set up
