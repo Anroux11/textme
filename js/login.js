@@ -6,6 +6,7 @@ function login() {
   let userFound = false;
 
   if (users) {
+    let hasUser = false;
     let userList = JSON.parse(users);
 
     for (let i = 0; i < userList.length; i++) {
@@ -13,12 +14,18 @@ function login() {
       if (_user.username == usernameInput) {
         userFound = true;
         if (_user.password == passwordInput) {
-          localStorage.setItem("me", usernameInput);
-          window.location.href = "../pages/chat.html";
+          sessionStorage.setItem("me", usernameInput);
+          userList[i].status = true;
+          hasUser = true;
         } else {
           alert("Username and password does not match");
         }
       }
+    }
+
+    if (hasUser) {
+      localStorage.setItem("users", JSON.stringify(userList));
+      window.location.href = "../pages/chat.html";
     }
 
     if (!userFound) {
@@ -28,3 +35,5 @@ function login() {
     alert("There are no users registered");
   }
 }
+
+function setUserStatus() {}
