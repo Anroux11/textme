@@ -1,6 +1,7 @@
 function onload() {
   loggedInUser();
   getContactList();
+  setTimeout(getChatHistory(), 1000);
 }
 function loggedInUser() {
   const storedUser = localStorage.getItem("me");
@@ -107,6 +108,20 @@ function getChatHistory(username) {
     msgElement.appendChild(div);
   }
 }
+
+function openViewModal() {
+  document.getElementById("view-modal").style.display = "flex";
+}
+
+function closeViewModal() {
+  document.getElementById("view-modal").style.display = "none";
+}
+
+// function addGroupChat() {}
+
+// function changeUsername() {}
+
+// function addContact() {}
 
 function logout() {
   localStorage.removeItem("me");
