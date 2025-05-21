@@ -20,20 +20,19 @@
           </button>
           <hr />
           <div class="add-group">
-            <button class="add-contact">
-              Contact<i class="fa-solid fa-plus"></i>
+            <button class="add-contact" onclick="loadUserChat()">
+              Contact <i class="fa-solid fa-people-group"></i>
             </button>
-            <button class="group">
+            <button class="group" onclick="loadGroupChat()">
               Group <i class="fa-solid fa-people-group"></i>
+            </button>
+            <button id="openModalBtn" class="group">
+              Group <i class="fa-solid fa-plus"></i>
             </button>
           </div>
           <hr />
-          <div class="filter-group">
-            <button class="all">All</button>
-            <button class="online">Online</button>
-            <button class="offline">Offline</button>
-          </div>
           <div class="contact-list" id="contacts"></div>
+          <div class="group-list" id="groups"></div>
           <div class="logout">
             <button class="logout-btn" onclick="logout()">
               LogOut<i class="fa-solid fa-right-from-bracket"></i>
@@ -43,20 +42,19 @@
       </div>
       <div class="right-pane">
         <div class="header"></div>
-        <div class="modal" id="view-modal">
-          <div>
-            <h3>Edit profile</h3>
-            <label for="username-change">Change Username: </label>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span id="closeModalBtn" class="close">&times;</span>
+            <h2 class="modal-title">Add new group</h2>
             <input
               type="text"
-              id="username-change"
-              name="chg-username"
-              placeholder="Change username"
+              id="group-name"
+              name="group-name"
+              placeholder="Enter Group Name"
+              required
             />
-            <button class="changebtn" type="submit" onclick="changeUsername()">
-              Change
-            </button>
-            <button class="closeModal" onclick="closeViewModal()">Close</button>
+            <div id="users-group"></div>
+            <button class="save-group" onclick="saveGroup()">Save</button>
           </div>
         </div>
         <div class="chat" id="chatmessage"></div>
@@ -66,6 +64,7 @@
             type="text"
             id="user-message"
             placeholder="Type Message"
+            oninput="isTyping()"
           />
           <button class="send-message-btn" onclick="sendMessage()">
             <i class="fa-solid fa-paper-plane"></i>
@@ -73,11 +72,6 @@
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-
-    <script src="/js/chat.js"></script>
-=======
     <script src="../js/chat.js"></script>
->>>>>>> 5c07df3750b70723c2a7e4b058a517acd390169c
   </body>
 </html>

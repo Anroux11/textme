@@ -38,6 +38,8 @@ function register() {
   const user = {
     username: usernameInput,
     password: passwordInput,
+    isTyping: false,
+    status: false,
   };
 
   const validated = validateRegistration(usernameInput, passwordInput);
