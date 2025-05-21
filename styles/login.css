@@ -1,81 +1,86 @@
 .login-card {
-    place-items: center;
-    justify-content: center;
-    align-items: center;   
+  place-items: center;
+  justify-content: center;
+  align-items: center;
 }
 img {
-    width: 300px;
-    height: auto;
+  width: 300px;
+  height: auto;
 }
 
 .container {
-    background-color: bisque;
-    width: 500px;
-    height: 600px;
-    /* margin: 200px 600px 200px 500px; */
-    background-color: darkslategray;
-    border-radius: 20px;
-    box-shadow: 3px 3px 3px white;
+  background-color: bisque;
+  width: 500px;
+  height: 600px;
+  /* margin: 200px 600px 200px 500px; */
+  background-color: darkslategray;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px white;
 }
 
 .card {
-    align-content: center;
-    justify-items: center;
+  align-content: center;
+  justify-items: center;
 }
 
 h2 {
-    color: white;
-    text-transform: uppercase;
+  color: white;
+  text-transform: uppercase;
 }
 
 .user {
-    place-items: center;
-    padding-top: 20px;
-    height: 60px;
+  place-items: center;
+  padding-top: 20px;
+  height: 60px;
 }
 
 #username {
-    width: 250px;
-    height: 40px;
-    border: none;
-} 
+  width: 250px;
+  height: 40px;
+  border: none;
+}
 
 #password {
-    width: 250px;
-    height: 40px;
-    margin-top: 20px;
-    border: none;
+  width: 250px;
+  height: 40px;
+  margin-top: 20px;
+  border: none;
 }
 
 hr {
-    margin-top: 20px;
-    width: 90px;
+  margin-top: 20px;
+  width: 120px;
 }
 
 h6 {
-    padding-top:20px;
-    color: white;
+  padding-top: 20px;
+  color: white;
 }
 
 a {
-    color: white;
-    margin-left:30px
+  color: white;
+  margin-left: 30px;
 }
 
 button {
-    width: 250px;
-    height: 35px;
-    border-radius: 30px;
-    margin-top: 50px;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    cursor: pointer;
+  width: 250px;
+  height: 35px;
+  border-radius: 30px;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  border: 3px solid black;
+  background-color: aquamarine;
 }
 
 .button-text {
-    font-style: bold;
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: 1rem;
+  font-style: bold;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1rem;
 }
