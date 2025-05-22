@@ -24,15 +24,15 @@ This app was created using HTML, CSS and JS.
 - Users should be able to log out
 
 2. Real-Time Chat Features
- - Display online users (todo)
+ - Display online users
  - Enable users to send and receive messages in real-time  
- - Support both group and private chat (todo)
+ - Support both group and private chat
 
 3. Data Persistence 
  - Persist chat messages using localStorage
 
 4. User Experience 
- - Display timestamps for each message (requires user friendly format)
+ - Display timestamps for each message
  - Provide a user profile view (todo)
  - Validate non-existing users upon login
  - Ensure usernames are unique
