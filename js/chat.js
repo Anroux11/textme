@@ -16,6 +16,7 @@ function setLoggedInUser(user) {
 }
 
 function getContactList() {
+  loadUserChat();
   const name = sessionStorage.getItem("me");
   const storedContacts = localStorage.getItem("users");
   let userList = JSON.parse(storedContacts);
@@ -188,8 +189,11 @@ function logout() {
 
   localStorage.setItem("users", JSON.stringify(userList));
   sessionStorage.removeItem("me");
+  window.location.href = "../pages/login.html";
 
-  window.location.href = "/pages/login.html";
+  // window.location.href = "@/pages/login";
+
+  // C:\Users\Anroux\Desktop\Development\grad-projects\textme\pages\login.html
 }
 
 function isTyping() {
