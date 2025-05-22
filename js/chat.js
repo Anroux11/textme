@@ -16,6 +16,7 @@ function setLoggedInUser(user) {
 }
 
 function getContactList() {
+  loadUserChat();
   const name = sessionStorage.getItem("me");
   const storedContacts = localStorage.getItem("users");
   let userList = JSON.parse(storedContacts);
@@ -272,35 +273,37 @@ function saveGroup() {
 function getGroupList() {
   const name = sessionStorage.getItem("me");
   const storedGroups = localStorage.getItem("groups");
-  let groupList = JSON.parse(storedGroups);
-  const groups = document.getElementById("groups");
-  let myGroups = [];
+  if (storedGroups != null) {
+    let groupList = JSON.parse(storedGroups);
+    const groups = document.getElementById("groups");
+    let myGroups = [];
 
-  for (let i = 0; i < groupList.length; i++) {
-    let groupObj = groupList[i];
-    let groupUsers = groupObj.users;
+    for (let i = 0; i < groupList.length; i++) {
+      let groupObj = groupList[i];
+      let groupUsers = groupObj.users;
 
-    for (let j = 0; j < groupUsers.length; j++) {
-      let groupUser = groupUsers[i];
-      if (groupUser == name) {
-        myGroups.push(groupObj);
+      for (let j = 0; j < groupUsers.length; j++) {
+        let groupUser = groupUsers[i];
+        if (groupUser == name) {
+          myGroups.push(groupObj);
+        }
       }
     }
-  }
 
-  if (myGroups.length > 0) {
-    var div = document.createElement("div");
+    if (myGroups.length > 0) {
+      var div = document.createElement("div");
 
-    for (let k = 0; k < myGroups.length; k++) {
-      let group = myGroups[k];
+      for (let k = 0; k < myGroups.length; k++) {
+        let group = myGroups[k];
 
-      div.innerHTML =
-        `<div class="group-name" id='${group.name}' onclick="setSelectedGroup(${group.name})">` +
-        `<div>` +
-        `<span>${group.name}</span>` +
-        `</div>` +
-        `</div>`;
-      groups.appendChild(div);
+        div.innerHTML =
+          `<div class="group-name" id='${group.name}' onclick="setSelectedGroup(${group.name})">` +
+          `<div>` +
+          `<span>${group.name}</span>` +
+          `</div>` +
+          `</div>`;
+        groups.appendChild(div);
+      }
     }
   }
 }
