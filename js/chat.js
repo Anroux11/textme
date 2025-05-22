@@ -189,8 +189,11 @@ function logout() {
 
   localStorage.setItem("users", JSON.stringify(userList));
   sessionStorage.removeItem("me");
+  window.location.href = "../pages/login.html";
 
-  window.location.href = "/pages/login.html";
+  // window.location.href = "@/pages/login";
+
+  // C:\Users\Anroux\Desktop\Development\grad-projects\textme\pages\login.html
 }
 
 function isTyping() {
