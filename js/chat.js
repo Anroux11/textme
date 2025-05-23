@@ -1,21 +1,22 @@
-function onload() {
+const onload = () => {
   loggedInUser();
   getContactList();
   getGroupList();
   setTimeout(getChatHistory(), 1000);
-}
-function loggedInUser() {
+};
+
+const loggedInUser = () => {
   const storedUser = sessionStorage.getItem("me");
 
   setLoggedInUser(storedUser);
-}
+};
 
-function setLoggedInUser(user) {
+const setLoggedInUser = (user) => {
   const name = document.getElementById("name");
   name.innerHTML = `${user}`;
-}
+};
 
-function getContactList() {
+const getContactList = () => {
   loadUserChat();
   const name = sessionStorage.getItem("me");
   const storedContacts = localStorage.getItem("users");
@@ -50,9 +51,9 @@ function getContactList() {
       contacts.appendChild(div);
     }
   }
-}
+};
 
-function setSelectedUser(username) {
+const setSelectedUser = (username) => {
   let contacts = document.querySelectorAll(".active");
   for (let i = 0; i < contacts.length; i++) {
     contacts[i].classList.remove("active");
@@ -63,18 +64,18 @@ function setSelectedUser(username) {
   element.classList.add("active");
 
   getChatHistory(username.firstChild.firstChild.innerText);
-}
+};
 
-function sendMessage() {
+const sendMessage = () => {
   let sending = localStorage.getItem("sending");
   if (sending == "user") {
     sendUserMessage();
   } else if (sending == "group") {
     sendGroupMessage();
   }
-}
+};
 
-function sendUserMessage() {
+const sendUserMessage = () => {
   const messageInput = document.getElementById("user-message").value;
   const loggedInUser = sessionStorage.getItem("me");
   const selectedUser = getSelectedUser();
@@ -102,14 +103,14 @@ function sendUserMessage() {
   setIsTyping(false);
 
   getChatHistory(selectedUser);
-}
+};
 
-function getSelectedUser() {
+const getSelectedUser = () => {
   const user = document.querySelectorAll(".active")[0];
   return user.firstChild.innerText;
-}
+};
 
-function getChatHistory(username) {
+const getChatHistory = (username) => {
   // Clear history - so that we do not display all messages
   document.getElementById("chatmessage").innerHTML = "";
 
@@ -142,17 +143,17 @@ function getChatHistory(username) {
       msgElement.appendChild(div);
     }
   }
-}
+};
 
-function openViewModal() {
+const openViewModal = () => {
   document.getElementById("view-modal").style.display = "flex";
-}
+};
 
-function closeViewModal() {
+const closeViewModal = () => {
   document.getElementById("view-modal").style.display = "none";
-}
+};
 
-function addGroupChat() {
+const addGroupChat = () => {
   document.getElementById("group-name").value = "";
   document.getElementById("users-group").innerHTML = "";
 
@@ -169,13 +170,12 @@ function addGroupChat() {
       `<label for="${username}">${username}</label><br>`;
     users.appendChild(div);
   }
-}
+};
 
 // function changeUsername() {}
 
 // function addContact() {}
-
-function logout() {
+const logout = () => {
   const name = sessionStorage.getItem("me");
   const storedContacts = localStorage.getItem("users");
   let userList = JSON.parse(storedContacts);
@@ -194,18 +194,18 @@ function logout() {
   // window.location.href = "@/pages/login";
 
   // C:\Users\Anroux\Desktop\Development\grad-projects\textme\pages\login.html
-}
+};
 
-function isTyping() {
+const isTyping = () => {
   const val = document.getElementById("user-message").value;
   if (val.length > 0) {
     setIsTyping(true);
   } else {
     setIsTyping(false);
   }
-}
+};
 
-function setIsTyping(bool) {
+const setIsTyping = (bool) => {
   const name = sessionStorage.getItem("me");
   const storedContacts = localStorage.getItem("users");
   let userList = JSON.parse(storedContacts);
@@ -217,25 +217,25 @@ function setIsTyping(bool) {
       break;
     }
   }
-}
+};
 
-function loadUserChat() {
+const loadUserChat = () => {
   // Clear history - so that we do not display all messages
   document.getElementById("chatmessage").innerHTML = "";
   document.getElementById("groups").style.display = "none";
   document.getElementById("contacts").style.display = "block";
   localStorage.setItem("sending", "user");
-}
+};
 
-function loadGroupChat() {
+const loadGroupChat = () => {
   // Clear history - so that we do not display all messages
   document.getElementById("chatmessage").innerHTML = "";
   document.getElementById("contacts").style.display = "none";
   document.getElementById("groups").style.display = "block";
   localStorage.setItem("sending", "group");
-}
+};
 
-function saveGroup() {
+const saveGroup = () => {
   const groups = localStorage.getItem("groups");
   const hasGroups = groups ? true : false;
 
@@ -271,9 +271,9 @@ function saveGroup() {
   document.getElementById("group-name").value = "";
   modal.style.display = "none";
   document.getElementById("users-group").innerHTML = "";
-}
+};
 
-function getGroupList() {
+const getGroupList = () => {
   const name = sessionStorage.getItem("me");
   const storedGroups = localStorage.getItem("groups");
   if (storedGroups != null) {
@@ -309,9 +309,9 @@ function getGroupList() {
       }
     }
   }
-}
+};
 
-function setSelectedGroup(groupname) {
+const setSelectedGroup = (groupname) => {
   localStorage.setItem(
     "selectedGroup",
     groupname.firstChild.firstChild.innerText
@@ -326,9 +326,9 @@ function setSelectedGroup(groupname) {
   element.classList.add("active");
 
   getGroupChatHistory(groupname.firstChild.firstChild.innerText);
-}
+};
 
-function getGroupChatHistory(groupname) {
+const getGroupChatHistory = (groupname) => {
   // Clear history - so that we do not display all messages
   document.getElementById("chatmessage").innerHTML = "";
 
@@ -364,9 +364,9 @@ function getGroupChatHistory(groupname) {
       }
     }
   }
-}
+};
 
-function sendGroupMessage() {
+const sendGroupMessage = () => {
   const groupname = localStorage.getItem("selectedGroup");
   const messageInput = document.getElementById("user-message").value;
   const loggedInUser = sessionStorage.getItem("me");
@@ -397,7 +397,7 @@ function sendGroupMessage() {
   document.getElementById("user-message").value = "";
 
   getGroupChatHistory(groupname);
-}
+};
 
 const modal = document.getElementById("myModal");
 const openBtn = document.getElementById("openModalBtn");

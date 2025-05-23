@@ -1,4 +1,4 @@
-function login() {
+const login = () => {
   const usernameInput = document.getElementById("username").value;
   const passwordInput = document.getElementById("password").value;
 
@@ -34,6 +34,6 @@ function login() {
   } else {
     alert("There are no users registered");
   }
-}
+};
 
-function setUserStatus() {}
+const setUserStatus = () => {};
