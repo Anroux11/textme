@@ -396,7 +396,7 @@ const getGroupChatHistory = (groupname) => {
           `<span class='message'>
         <p >` +
           msgObj.message +
-          `</p><p class=''>` +
+          `</p><p class='date'>` +
           msgObj.date +
           `</p><p class=''>` +
           msgObj.from +
@@ -415,7 +415,7 @@ const sendGroupMessage = () => {
 
   const message = {
     from: loggedInUser,
-    date: new Date().toISOString(),
+    date: formatDate(),
     message: messageInput,
   };
 

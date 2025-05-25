@@ -161,6 +161,7 @@ hr {
   border-top: 2px solid darkslategray;
   border-right: 2px solid darkslategray;
   border-bottom: 3px solid white;
+  color: white;
 }
 
 .contact-name:hover {
@@ -198,7 +199,9 @@ hr {
   display: block;
   width: fit-content;
   border-radius: 15px;
+  font-weight: 600;
 }
+
 .message.from {
   padding: 7px 15px;
   background-color: lightslategray;
@@ -210,6 +213,7 @@ hr {
   float: right;
   font-weight: 600;
 }
+
 .message.to {
   padding: 7px 15px;
   background-color: rgb(125, 175, 224);
@@ -373,6 +377,25 @@ label {
   cursor: pointer;
   font-weight: 600;
   font-size: 15px;
+}
+
+.save-username {
+  margin-top: 25px;
+  margin-left: 50px;
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: darkslategray;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.save-username:hover {
+  background-color: rgb(56, 151, 47);
+  color: white;
 }
 
 .save-group:hover {
