@@ -66,56 +66,15 @@ h2 {
   background-color: rgb(199, 225, 199);
 }
 
-/* .modal {
-  display: none;
-  display: block;
-  width: 350px;
-  height: 170px;
-  background-color: rgb(199, 225, 199);
-  border-radius: 10px;
-  border-color: 2px solid black;
-  min-width: 300px;
-  z-index: 2000;
-  display: flex;
-  justify-self: center;
-  margin-top: 220px;
-} */
-
-/* label {
-  padding-left: 10px;
-}
-
-input #group-name {
-  padding-left: 10px;
-  margin-left: 10px;
-  margin-top: 10px;
-  border-radius: 10px;
-  width: 20px;
-} */
-
-/* #username-change {
-  padding-left: 20px;
-  height: 25px;
-}
-
-h3 {
-  padding-left: 10px;
-}
-
-.changebtn {
-  padding-left: 10px;
-  border-radius: 10px;
-} */
-
-/* .closeModal {
-  width: 50px;
-  border-radius: 50px;
-} */
-
 .add-group,
 .filter-group {
   width: 100%;
   display: inline-block;
+}
+
+.view-group.g-active {
+  background-color: rgb(56, 151, 47);
+  color: white;
 }
 
 .add-contact {
@@ -126,6 +85,17 @@ h3 {
   height: 40px;
   font-weight: 600;
   border: none;
+}
+.add-contact.g-active {
+  width: 30%;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px 0 10px 4%;
+  height: 40px;
+  font-weight: 600;
+  border: none;
+  background-color: rgb(56, 151, 47);
+  color: white;
 }
 
 .add-contact:hover {
@@ -157,28 +127,6 @@ h3 {
   margin-left: 10px;
 }
 
-/* .all {
-  cursor: pointer;
-  height: 20px;
-  width: 30%;
-  margin-left: 4%;
-  border-radius: 5px;
-}
-
-.online {
-  cursor: pointer;
-  height: 20px;
-  width: 30%;
-  border-radius: 5px;
-}
-
-.offline {
-  cursor: pointer;
-  height: 20px;
-  width: 30%;
-  border-radius: 5px;
-} */
-
 hr {
   width: 260px;
 }
@@ -204,7 +152,7 @@ hr {
 }
 
 .group-name {
-  background-color: slategray;
+  background-color: rgb(84, 92, 100);
   /* width: calc(100% - 12px); */
   width: 289px;
   height: 45px;
@@ -212,10 +160,12 @@ hr {
   padding-left: 10px;
   border-top: 2px solid darkslategray;
   border-right: 2px solid darkslategray;
+  border-bottom: 3px solid white;
 }
 
 .contact-name:hover {
   background-color: lightgray;
+  color: black;
 }
 
 .contact-name.active,
@@ -233,8 +183,7 @@ hr {
 
 .chat {
   overflow-y: scroll;
-  height: auto;
-  max-height: 650px;
+  height: 550px;
 }
 
 .chat::-webkit-scrollbar {
@@ -249,6 +198,33 @@ hr {
   display: block;
   width: fit-content;
   border-radius: 15px;
+}
+.message.from {
+  padding: 7px 15px;
+  background-color: lightslategray;
+  margin: 10px 10px 0px 10px;
+  height: fit-content;
+  display: block;
+  width: fit-content;
+  border-radius: 15px;
+  float: right;
+  font-weight: 600;
+}
+.message.to {
+  padding: 7px 15px;
+  background-color: rgb(125, 175, 224);
+  margin: 10px 10px 0px 10px;
+  height: fit-content;
+  display: block;
+  width: fit-content;
+  border-radius: 15px;
+  float: left;
+  font-weight: 600;
+}
+
+.date {
+  font-weight: 300;
+  font-style: italic;
 }
 
 .footer {
@@ -304,10 +280,12 @@ hr {
   font-weight: 600;
   font-size: 20px;
   text-transform: uppercase;
+  border: none;
 }
 
 .logout-btn:hover {
-  background-color: rgb(212, 174, 169);
+  background-color: rgb(168, 61, 47);
+  color: white;
 }
 
 .fa-solid .fa-right-from-bracket {
@@ -385,7 +363,7 @@ label {
 
 .save-group {
   margin-top: 15px;
-  margin-left: 10px;
+  margin-left: 55px;
   width: 150px;
   height: 30px;
   border-radius: 10px;
@@ -398,8 +376,8 @@ label {
 }
 
 .save-group:hover {
-  background-color: rgb(199, 225, 199);
-  color: black;
+  background-color: rgb(56, 151, 47);
+  color: white;
 }
 
 /* Close Button */

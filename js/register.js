@@ -37,7 +37,7 @@ const register = () => {
 
   const user = {
     username: usernameInput,
-    password: passwordInput,
+    password: encryptPassword(passwordInput, "my-secret-key"),
     isTyping: false,
     status: false,
   };
@@ -72,3 +72,13 @@ const register = () => {
     alert("Registration form is not valid");
   }
 };
+
+function encryptPassword(password, key) {
+  try {
+    const ciphertext = CryptoJS.AES.encrypt(password, key).toString();
+    return ciphertext;
+  } catch (e) {
+    console.error("Encryption error:", e);
+    return null;
+  }
+}
