@@ -22,22 +22,22 @@ const login = () => {
           userList[i].status = true;
           hasUser = true;
         } else {
-          displayAlert("Username and password does not match");
+          alert("Username and password does not match");
         }
       }
     }
 
     if (hasUser) {
-      displayAlert("User is authenticated");
+      alert("User is authenticated");
       localStorage.setItem("users", JSON.stringify(userList));
       window.location.href = "../pages/chat.html";
     }
 
     if (!userFound) {
-      displayAlert("This user has not registered yet");
+      alert("This user has not registered yet");
     }
   } else {
-    displayAlert("There are no users registered");
+    alert("There are no users registered");
   }
 };
 
