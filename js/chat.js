@@ -83,7 +83,7 @@ const sendUserMessage = () => {
   const message = {
     from: loggedInUser,
     to: selectedUser,
-    date: new Date().toISOString(),
+    date: new Date().toLocaleString(),
     message: messageInput,
   };
 
@@ -136,7 +136,7 @@ const getChatHistory = (username) => {
         `<span class='message'>
         <p >` +
         msgObj.message +
-        `</p><p class=''>` +
+        `</p><p class='date'>` +
         msgObj.date +
         `</p>
         </span>`;

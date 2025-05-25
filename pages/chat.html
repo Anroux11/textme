@@ -21,7 +21,7 @@
           <hr />
           <div class="add-group">
             <button class="add-contact" onclick="loadUserChat()">
-              Contact <i class="fa-solid fa-people-group"></i>
+              Contact <i class="fa-solid fa-user"></i>
             </button>
             <button class="group" onclick="loadGroupChat()">
               Group <i class="fa-solid fa-people-group"></i>
@@ -35,7 +35,7 @@
           <div class="group-list" id="groups"></div>
           <div class="logout">
             <button class="logout-btn" onclick="logout()">
-              LogOut<i class="fa-solid fa-right-from-bracket"></i>
+              LogOut <i class="fa-solid fa-right-from-bracket"></i>
             </button>
           </div>
         </div>
@@ -63,7 +63,7 @@
             class="message-input"
             type="text"
             id="user-message"
-            placeholder="Type Message"
+            placeholder="Type Message Here..."
             oninput="isTyping()"
           />
           <button class="send-message-btn" onclick="sendMessage()">
