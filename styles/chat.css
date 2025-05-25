@@ -3,18 +3,22 @@ body {
   background-color: rgba(0, 0, 0, 0.849);
   height: 100vh;
   margin: 0;
+  /* display: flex; */
 }
 
 .container {
   max-width: auto;
-  max-height: 100vh;
+  max-height: auto;
+  /* display: flex; */
 }
 
 .left-pane {
   height: 100vh;
   width: 300px;
+  min-width: 150px;
   position: absolute;
   background-color: #2f4f4f;
+  /* display: flex; */
 }
 
 .right-pane {
@@ -23,6 +27,7 @@ body {
   margin-left: 300px;
   position: absolute;
   background-color: lightgray;
+  /* display: flex; */
 }
 
 .my-user {
@@ -45,7 +50,7 @@ h2 {
 
 .view-profile {
   display: inline-block;
-  width: 60px;
+  width: 50px;
   height: 40px;
   justify-content: center;
   align-items: center;
@@ -53,15 +58,16 @@ h2 {
   margin-right: 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
+  border: none;
 }
 
 .view-profile:hover {
   background-color: rgb(199, 225, 199);
 }
 
-.modal {
-  /* display: none; */
+/* .modal {
+  display: none;
   display: block;
   width: 350px;
   height: 170px;
@@ -73,20 +79,21 @@ h2 {
   display: flex;
   justify-self: center;
   margin-top: 220px;
-}
+} */
 
-label {
+/* label {
   padding-left: 10px;
 }
 
-input {
+input #group-name {
   padding-left: 10px;
   margin-left: 10px;
   margin-top: 10px;
   border-radius: 10px;
-}
+  width: 20px;
+} */
 
-#username-change {
+/* #username-change {
   padding-left: 20px;
   height: 25px;
 }
@@ -98,12 +105,12 @@ h3 {
 .changebtn {
   padding-left: 10px;
   border-radius: 10px;
-}
+} */
 
-.closeModal {
+/* .closeModal {
   width: 50px;
   border-radius: 50px;
-}
+} */
 
 .add-group,
 .filter-group {
@@ -118,15 +125,17 @@ h3 {
   margin: 10px 0 10px 4%;
   height: 40px;
   font-weight: 600;
+  border: none;
 }
 
 .add-contact:hover {
   background-color: rgb(199, 225, 199);
 }
 
-.fa-solid .fa-people-group {
-  font-size: 15px;
+.fa-solid .fa-user {
+  font-size: 20px;
   padding-left: 10px;
+  font-weight: 800;
 }
 
 .group {
@@ -135,6 +144,8 @@ h3 {
   cursor: pointer;
   height: 40px;
   font-weight: 600;
+  border: none;
+  font-weight: 700;
 }
 
 .group:hover {
@@ -142,11 +153,11 @@ h3 {
 }
 
 .fa-solid .fa-people-group {
-  font-size: 25px;
-  padding-left: 10px;
+  font-size: 30px;
+  margin-left: 10px;
 }
 
-.all {
+/* .all {
   cursor: pointer;
   height: 20px;
   width: 30%;
@@ -166,7 +177,7 @@ h3 {
   height: 20px;
   width: 30%;
   border-radius: 5px;
-}
+} */
 
 hr {
   width: 260px;
@@ -179,19 +190,24 @@ hr {
 }
 
 .contact-name {
-  background-color: slategray;
+  background-color: rgb(84, 92, 100);
   width: calc(100% - 12px);
-  height: 60px;
-  font-size: 25px;
-  padding-left: 10px;
+  height: 70px;
+  font-size: 30px;
   border-top: 2px solid darkslategray;
+  border-bottom: 3px solid white;
   border-right: 2px solid darkslategray;
+  width: 300px;
+  padding-left: 15px;
+  padding-top: 2px;
+  color: white;
 }
 
 .group-name {
   background-color: slategray;
-  width: calc(100% - 12px);
-  height: 40px;
+  /* width: calc(100% - 12px); */
+  width: 289px;
+  height: 45px;
   font-size: 25px;
   padding-left: 10px;
   border-top: 2px solid darkslategray;
@@ -206,6 +222,7 @@ hr {
 .group-name.active {
   background-color: lightgray;
   border-right: 2px solid transparent;
+  color: black;
 }
 
 .header {
@@ -217,7 +234,7 @@ hr {
 .chat {
   overflow-y: scroll;
   height: auto;
-  max-height: 520px;
+  max-height: 650px;
 }
 
 .chat::-webkit-scrollbar {
@@ -228,9 +245,9 @@ hr {
   padding: 7px 15px;
   background-color: lightslategray;
   margin: 10px 0px 0px 10px;
-  height: 40%;
+  height: fit-content;
   display: block;
-  width: 45%;
+  width: fit-content;
   border-radius: 15px;
 }
 
@@ -240,7 +257,7 @@ hr {
   height: 70px;
   position: absolute;
   bottom: 0;
-  display: inline-block;
+  display: flex;
 }
 
 .message-input {
@@ -249,6 +266,7 @@ hr {
   margin-left: 10px;
   height: 37px;
   margin-top: 15px;
+  display: flexl;
 }
 
 .send-message-btn {
@@ -294,7 +312,6 @@ hr {
 
 .fa-solid .fa-right-from-bracket {
   padding-left: 20px;
-  font-size: 25px;
 }
 
 .online {
@@ -302,8 +319,9 @@ hr {
   border-radius: 10px;
   margin-left: 125px;
   padding: 2px 10px;
-  background-color: #27a040;
+  background-color: #06ee34;
   font-weight: 600;
+  display: table-cell;
 }
 
 .offline {
@@ -313,10 +331,13 @@ hr {
   padding: 2px 10px;
   background-color: red;
   font-weight: 600;
+  vertical-align: -webkit-baseline-middle;
+  display: table-cell;
 }
 
 .typing {
-  font-size: 12px;
+  padding-top: 3px;
+  font-size: 13px;
   font-style: italic;
 }
 
@@ -338,18 +359,56 @@ hr {
 .modal-content {
   background-color: #fff;
   margin: 15% auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
-  width: 300px;
+  width: 260px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+input {
+  padding-left: 40px;
+  margin-left: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+input:focus {
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+label {
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+.save-group {
+  margin-top: 15px;
+  margin-left: 10px;
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: darkslategray;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.save-group:hover {
+  background-color: rgb(199, 225, 199);
+  color: black;
 }
 
 /* Close Button */
 .close {
   color: #aaa;
   float: right;
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
+  margin-right: 10px;
 }
 .close:hover {
   color: #000;
@@ -357,4 +416,46 @@ hr {
 
 .modal-title {
   color: black;
+  padding-left: 10px;
+  margin-top: 3px;
 }
+
+/* Media Quries */
+/* @media screen and (max-width: 700px) {
+  .left-pane {
+    width: 30%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .my-user
+    .openModalBtn
+    .logout
+    .view-profile
+    .add-contact
+    .group
+    .contact-list
+    .group-list {
+    float: left;
+  }
+
+  .right-pane .header .chat .footer {
+    float: left;
+  }
+
+  .footer .message-input .send-message-btn {
+    min-width: auto;
+  }
+} */
+
+/* div.content {
+    margin-left: 0;
+  }
+} */
+
+/* @media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+} */
