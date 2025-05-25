@@ -13,20 +13,44 @@
   <body onload="onload()">
     <div class="container">
       <div class="left-pane">
+        <div id="myUserModal" class="modal">
+          <div class="modal-content">
+            <span id="closeUserModalBtn" class="close">&times;</span>
+            <h2 class="modal-title">Update Username</h2>
+            <input
+              type="text"
+              id="new-username"
+              name="new-user-name"
+              placeholder="Enter new Name"
+              required
+            />
+            <button class="save-username" onclick="updateUsername()">
+              Save
+            </button>
+          </div>
+        </div>
         <div class="my-user">
           <h2 id="name">User</h2>
-          <button class="view-profile" onclick="openViewModal()">
+          <button id="openUserModalBtn" class="view-profile">
             <i class="fa-solid fa-user-pen"></i>
           </button>
           <hr />
           <div class="add-group">
-            <button class="add-contact" onclick="loadUserChat()">
+            <button
+              id="add-contact-btn"
+              class="add-contact"
+              onclick="loadUserChat()"
+            >
               Contact <i class="fa-solid fa-user"></i>
             </button>
-            <button class="group" onclick="loadGroupChat()">
+            <button
+              id="add-group-btn"
+              class="group view-group"
+              onclick="loadGroupChat()"
+            >
               Group <i class="fa-solid fa-people-group"></i>
             </button>
-            <button id="openModalBtn" class="group">
+            <button id="openGroupModalBtn" class="group">
               Group <i class="fa-solid fa-plus"></i>
             </button>
           </div>
@@ -42,9 +66,9 @@
       </div>
       <div class="right-pane">
         <div class="header"></div>
-        <div id="myModal" class="modal">
+        <div id="myGroupModal" class="modal">
           <div class="modal-content">
-            <span id="closeModalBtn" class="close">&times;</span>
+            <span id="closeGroupModalBtn" class="close">&times;</span>
             <h2 class="modal-title">Add new group</h2>
             <input
               type="text"

@@ -1,8 +1,34 @@
+window.addEventListener("storage", (event) => {
+  if (event.key === "messages") {
+    const selectedUser = getSelectedUser();
+    getChatHistory(selectedUser);
+  }
+
+  if (event.key === "users") {
+    const storedContacts = localStorage.getItem("users");
+    let userList = JSON.parse(storedContacts);
+    for (let i = 0; i < userList.length; i++) {
+      let userObj = userList[i];
+      let contacts = document.getElementById("contacts").children;
+      for (let j = 0; j < contacts.length; j++) {
+        if (userObj.isTyping) {
+          if (contacts[j].innerText == userObj.username) {
+            for (let k = 0; k < contacts[j].children; k++) {
+              contacts[j].children[k].children[0].children[1].innerText =
+                "is typing...";
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
 const onload = () => {
   loggedInUser();
   getContactList();
   getGroupList();
-  setTimeout(getChatHistory(), 1000);
+  setTimeout(getChatHistory(), 300);
 };
 
 const loggedInUser = () => {
@@ -34,7 +60,7 @@ const getContactList = () => {
           `<div class="contact-name" id='${username}' onclick="setSelectedUser(${username})">` +
           `<div>` +
           `<span>${username}</span>` +
-          `<span class="online"> </span>` +
+          `<span id="user-typing" class="online"> </span>` +
           `</div>` +
           `<div class="typing">${isTyping}</div>` +
           `</div>`;
@@ -43,7 +69,7 @@ const getContactList = () => {
           `<div class="contact-name" id='${username}' onclick="setSelectedUser(${username})">` +
           `<div>` +
           `<span>${username}</span>` +
-          `<span class="offline"> </span>` +
+          `<span id="user-typing" class="offline"> </span>` +
           `</div>` +
           `<div class="typing">${isTyping}</div>` +
           `</div>`;
@@ -83,7 +109,7 @@ const sendUserMessage = () => {
   const message = {
     from: loggedInUser,
     to: selectedUser,
-    date: new Date().toLocaleString(),
+    date: formatDate(),
     message: messageInput,
   };
 
@@ -132,25 +158,32 @@ const getChatHistory = (username) => {
     for (let i = 0; i < chatHistory.length; i++) {
       let msgObj = chatHistory[i];
       var div = document.createElement("div");
-      div.innerHTML =
-        `<span class='message'>
+      div.style.display = "inline-block";
+      div.style.width = "-webkit-fill-available";
+
+      if (msgObj.from == username) {
+        div.innerHTML =
+          `<span class='message from'>
         <p >` +
-        msgObj.message +
-        `</p><p class='date'>` +
-        msgObj.date +
-        `</p>
+          msgObj.message +
+          `</p><p class='date'>` +
+          msgObj.date +
+          `</p>
         </span>`;
-      msgElement.appendChild(div);
+        msgElement.appendChild(div);
+      } else {
+        div.innerHTML =
+          `<span class='message to'>
+        <p >` +
+          msgObj.message +
+          `</p><p class='date'>` +
+          msgObj.date +
+          `</p>
+        </span>`;
+        msgElement.appendChild(div);
+      }
     }
   }
-};
-
-const openViewModal = () => {
-  document.getElementById("view-modal").style.display = "flex";
-};
-
-const closeViewModal = () => {
-  document.getElementById("view-modal").style.display = "none";
 };
 
 const addGroupChat = () => {
@@ -172,9 +205,6 @@ const addGroupChat = () => {
   }
 };
 
-// function changeUsername() {}
-
-// function addContact() {}
 const logout = () => {
   const name = sessionStorage.getItem("me");
   const storedContacts = localStorage.getItem("users");
@@ -190,10 +220,6 @@ const logout = () => {
   localStorage.setItem("users", JSON.stringify(userList));
   sessionStorage.removeItem("me");
   window.location.href = "../pages/login.html";
-
-  // window.location.href = "@/pages/login";
-
-  // C:\Users\Anroux\Desktop\Development\grad-projects\textme\pages\login.html
 };
 
 const isTyping = () => {
@@ -213,7 +239,20 @@ const setIsTyping = (bool) => {
     let userObj = userList[i];
     if (userObj.username == name) {
       userList[i].isTyping = bool;
+
       localStorage.setItem("users", JSON.stringify(userList));
+
+      let contacts = document.getElementById("contacts").children;
+      for (let j = 0; j < contacts.length; j++) {
+        if (userList[i].isTyping) {
+          if (contacts[j].innerText == userObj.username) {
+            for (let k = 0; k < contacts[j].children; k++) {
+              contacts[j].children[k].children[0].children[1].innerText =
+                "is typing...";
+            }
+          }
+        }
+      }
       break;
     }
   }
@@ -224,6 +263,8 @@ const loadUserChat = () => {
   document.getElementById("chatmessage").innerHTML = "";
   document.getElementById("groups").style.display = "none";
   document.getElementById("contacts").style.display = "block";
+  document.getElementById("add-group-btn").classList.remove("g-active");
+  document.getElementById("add-contact-btn").classList.add("g-active");
   localStorage.setItem("sending", "user");
 };
 
@@ -232,6 +273,8 @@ const loadGroupChat = () => {
   document.getElementById("chatmessage").innerHTML = "";
   document.getElementById("contacts").style.display = "none";
   document.getElementById("groups").style.display = "block";
+  document.getElementById("add-group-btn").classList.add("g-active");
+  document.getElementById("add-contact-btn").classList.remove("g-active");
   localStorage.setItem("sending", "group");
 };
 
@@ -269,11 +312,14 @@ const saveGroup = () => {
   }
 
   document.getElementById("group-name").value = "";
-  modal.style.display = "none";
+  groupModal.style.display = "none";
   document.getElementById("users-group").innerHTML = "";
+
+  getGroupList();
 };
 
 const getGroupList = () => {
+  loadGroupChat();
   const name = sessionStorage.getItem("me");
   const storedGroups = localStorage.getItem("groups");
   if (storedGroups != null) {
@@ -285,18 +331,14 @@ const getGroupList = () => {
       let groupObj = groupList[i];
       let groupUsers = groupObj.users;
 
-      for (let j = 0; j < groupUsers.length; j++) {
-        let groupUser = groupUsers[i];
-        if (groupUser == name) {
-          myGroups.push(groupObj);
-        }
+      if (groupUsers.includes(name)) {
+        myGroups.push(groupObj);
       }
     }
 
     if (myGroups.length > 0) {
-      var div = document.createElement("div");
-
       for (let k = 0; k < myGroups.length; k++) {
+        var div = document.createElement("div");
         let group = myGroups[k];
 
         div.innerHTML =
@@ -399,21 +441,70 @@ const sendGroupMessage = () => {
   getGroupChatHistory(groupname);
 };
 
-const modal = document.getElementById("myModal");
-const openBtn = document.getElementById("openModalBtn");
-const closeBtn = document.getElementById("closeModalBtn");
+const updateUsername = () => {
+  const usernameInput = document.getElementById("new-username").value;
 
-openBtn.onclick = () => {
-  addGroupChat();
-  modal.style.display = "block";
+  const storedUser = sessionStorage.getItem("me");
+  const storedContacts = localStorage.getItem("users");
+  let userList = JSON.parse(storedContacts);
+
+  for (let i = 0; i < userList.length; i++) {
+    let user = userList[i].username;
+
+    if (user == storedUser) {
+      userList[i].username = usernameInput;
+    }
+    break;
+  }
+
+  sessionStorage.setItem("me", usernameInput);
+  localStorage.setItem("users", JSON.stringify(userList));
+  userModal.style.display = "none";
+  const name = document.getElementById("name");
+  name.innerHTML = `${usernameInput}`;
 };
 
-closeBtn.onclick = () => {
-  modal.style.display = "none";
+const formatDate = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const hours = String(date.getHours()).padStart(2, "0");
+  const mins = String(date.getMinutes()).padStart(2, "0");
+
+  return `${year}/${month}/${day} - ${hours}:${mins}`;
+};
+
+const groupModal = document.getElementById("myGroupModal");
+const openGroupModalBtn = document.getElementById("openGroupModalBtn");
+const closeGroupModalBtn = document.getElementById("closeGroupModalBtn");
+
+const userModal = document.getElementById("myUserModal");
+const openUserModalBtn = document.getElementById("openUserModalBtn");
+const closeUserModalBtn = document.getElementById("closeUserModalBtn");
+
+openGroupModalBtn.onclick = () => {
+  addGroupChat();
+  groupModal.style.display = "block";
+};
+
+closeGroupModalBtn.onclick = () => {
+  groupModal.style.display = "none";
+};
+
+openUserModalBtn.onclick = () => {
+  userModal.style.display = "block";
+};
+
+closeUserModalBtn.onclick = () => {
+  userModal.style.display = "none";
 };
 
 window.onclick = (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
+  if (e.target === groupModal) {
+    groupModal.style.display = "none";
+  }
+  if (e.target === userModal) {
+    userModal.style.display = "none";
   }
 };
