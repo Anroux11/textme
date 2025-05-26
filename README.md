@@ -33,7 +33,7 @@ This app was created using HTML, CSS and JS.
 
 4. User Experience 
  - Display timestamps for each message
- - Provide a user profile view (todo)
+ - Provide a user profile view
  - Validate non-existing users upon login
  - Ensure usernames are unique
 
@@ -44,9 +44,25 @@ This app was created using HTML, CSS and JS.
 ## Design  
 [WIREFRAMES] (https://www.figma.com/design/Pt94MTVC6AAPnB4Bu5YBmT/TextMe?node-id=0-1&p=f&t=BDYCZb8UloKKkXSd-0)
 
-## Application details
+ 1. Download the VS Code Editor and Live Extension in the code editor.
+    Open the TextMe folder in the code editor and navigate to the login.html and click on "Go Live" at the bottom-right of the screen.
+    The browser will open on the login page where you can lofin and register.
+
+ 2. Clone the project from the TextMe repository. 
+    Open the code editor and use the built in terminal to clone the project.
+    If cloned click on "Go Live" at the bottem-right of the screen. The browser will open the login page where you can login and register.
+
+
 ### Project set up
 git clone https://github.com/Anroux11/textme.git
+
+1. Download the VS Code Editor and Live Extension in the code editor.
+    Open the TextMe folder in the code editor and navigate to the login.html and click on "Go Live" at the bottom-right of the screen.
+    The browser will open on the login page where you can lofin and register.
+
+ 2. Clone the project from the TextMe repository or see the clone URL in this project setup section.
+    Open the code editor and use the built in terminal to clone the project.
+    If cloned click on "Go Live" at the bottem-right of the screen. The browser will open the login page where you can login and register.
 
 ### Deployed application
 https://anroux11.github.io/textme/
